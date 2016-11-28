@@ -1,4 +1,5 @@
 (set-env!
   :source-paths #{"src"}
-  :dependencies '[[org.clojure/clojure "1.8.0"]
-                  [quil "2.4.0"]])
+  :dependencies '[[org.clojure/clojure "1.9.0-alpha14"]
+                  [quil "2.5.0"]
+                  [quil/processing-core "3.2.2"]])

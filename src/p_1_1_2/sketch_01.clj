@@ -1,5 +1,4 @@
 (ns p-1-1-2.sketch-01
-  (:refer-clojure :exclude [complement])
   (:require [quil.core :as q]
             [quil.middleware :as m]))
 
