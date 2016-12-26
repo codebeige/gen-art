@@ -35,6 +35,3 @@
   :setup setup
   :draw draw
   :mouse-moved mouse-moved)
-
-(comment
- (q/color-mo:))
