@@ -1,11 +1,11 @@
-(ns p-1-2-2.sketch-01
-  (:require [p-1-2-2.core :refer :all]
+(ns p-1-2-3.sketch-01
+  (:require [p-1-2-3.core :refer :all]
             [quil.core :as q]
             [quil.middleware :as m]))
 
-(q/defsketch sampled-color-palettes
-  :title "Color Palettes from Images"
-  :size [600 600]
+(q/defsketch generated-color-palettes
+  :title "Color Palettes from Rules"
+  :size [800 800]
   :middleware [m/fun-mode]
   :setup setup
   :draw draw
