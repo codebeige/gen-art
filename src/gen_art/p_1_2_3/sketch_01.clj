@@ -1,4 +1,4 @@
-(ns p-1-2-3.core
+(ns gen-art.p-1-2-3.sketch-01
   (:require [quil.core :as q]))
 
 (def step-x-min 15)

@@ -1,5 +1,5 @@
-(ns p-1-2-2.core
-  (:require [util.color :as c]
+(ns gen-art.p-1-2-2.sketch-01
+  (:require [gen-art.util.color :as c]
             [quil.core :as q]))
 
 (def step-min 5)

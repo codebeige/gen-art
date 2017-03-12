@@ -1,4 +1,4 @@
-(ns util.color
+(ns gen-art.util.color
   (:require [quil.core :as q]))
 
 (defn rgb [c]

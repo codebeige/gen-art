@@ -1,7 +1,6 @@
-(ns p-1-1-1.sketch-01
+(ns gen-art.p-1-1-1.sketch-01
   (:refer-clojure :exclude [complement])
-  (:require [quil.core :as q]
-            [quil.middleware :as m]))
+  (:require [quil.core :as q]))
 
 (defn setup []
   (q/no-cursor)
@@ -27,11 +26,3 @@
           y (range 0 (q/height) step-y)]
     (q/fill (hue-at x) (saturation-at y) 1)
     (q/rect x y step-x step-y)))
-
-(q/defsketch rastered-color-space
-  :title "Rastered Color Space"
-  :size [800 400]
-  :middleware [m/fun-mode m/pause-on-error]
-  :setup setup
-  :draw draw
-  :mouse-moved mouse-moved)

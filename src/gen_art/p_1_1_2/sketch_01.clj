@@ -1,6 +1,5 @@
-(ns p-1-1-2.sketch-01
-  (:require [quil.core :as q]
-            [quil.middleware :as m]))
+(ns gen-art.p-1-1-2.sketch-01
+  (:require [quil.core :as q]))
 
 (def tau q/TWO-PI)
 
@@ -57,12 +56,3 @@
     (doseq [angle (take (inc steps) (angle-seq steps))]
       (q/fill angle saturation brightness)
       (apply q/vertex (point-on-circle angle)))))
-
-(q/defsketch sectored-color-space
-  :title "Sectored Color Space"
-  :size [800 800]
-  :middleware [m/fun-mode m/pause-on-error]
-  :setup setup
-  :draw draw
-  :mouse-moved mouse-moved
-  :key-pressed key-pressed)

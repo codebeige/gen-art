@@ -1,4 +1,4 @@
-(ns p-1-2-1.core
+(ns gen-art.p-1-2-1.sketch-01
   (:require [quil.core :as q]))
 
 (def max-rows 12)

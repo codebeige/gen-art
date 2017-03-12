@@ -1,7 +1,6 @@
-(ns p-1-0.sketch-01
+(ns gen-art.p-1-0.sketch-01
   (:refer-clojure :exclude [complement])
-  (:require [quil.core :as q]
-            [quil.middleware :as m]))
+  (:require [quil.core :as q]))
 
 (def max-hue 360)
 
@@ -40,11 +39,3 @@
   (q/background bg 100 100)
   (q/fill fg 100 100)
   (centered-square size))
-
-(q/defsketch hello-color
-  :title "Hello Color"
-  :size [720 720]
-  :middleware [m/fun-mode m/pause-on-error]
-  :setup setup
-  :draw draw
-  :mouse-moved mouse-moved)
