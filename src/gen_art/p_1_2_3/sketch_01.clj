@@ -1,5 +1,6 @@
 (ns gen-art.p-1-2-3.sketch-01
-  (:require [quil.core :as q]))
+  (:require [gen-art.util.color :as color]
+            [quil.core :as q]))
 
 (def step-x-min 15)
 (def step-x-max 105)
@@ -9,24 +10,8 @@
 
 (def color-count 63)
 
-(defn rand-from-range
-  ([end] (rand-from-range 0 end))
-  ([start end]
-   (rand-nth (range start (inc end)))))
-
-(defn rand-val [{:keys [min max] :or {min 0, max 100}}]
-  (+ min (rand (- max min))))
-
-(defn rand-color [{:keys [h s b] :or {h {:max 360}}}]
-  [(rand-val h) (rand-val s) (rand-val b) 100])
-
-(defn rand-colors
-  ([] (rand-colors {}))
-  ([& color-ranges]
-   (->> color-ranges
-        (map #(repeatedly (partial rand-color %)))
-        (apply interleave)
-        (take color-count))))
+(defn rand-colors [& ranges]
+  (->> ranges (apply color/rand-colors) (take color-count)))
 
 (defn setup []
   (q/no-cursor)
@@ -36,7 +21,7 @@
    :step-y 100
    :width (q/width)
    :height (q/height)
-   :colors (rand-colors)})
+   :colors (rand-colors {})})
 
 (defn origins [{:keys [step-x step-y width height]}]
   (for [y (range 0 height step-y)
