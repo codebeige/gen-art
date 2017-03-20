@@ -2,6 +2,7 @@
   (:require [gen-art.p-1-2-3.sketch-01 :as sketch-01]
             [gen-art.p-1-2-3.sketch-02 :as sketch-02]
             [gen-art.p-1-2-3.sketch-03 :as sketch-03]
+            [gen-art.p-1-2-3.sketch-04 :as sketch-04]
             [quil.core :as q]
             [quil.middleware :as m]))
 
@@ -30,3 +31,12 @@
   :setup sketch-03/setup
   :draw sketch-03/draw
   :mouse-released sketch-03/mouse-released)
+
+(q/defsketch p-1-2-3-04
+  :title "Color Palettes from Rules"
+  :size [800 800]
+  :middleware [m/fun-mode]
+  :renderer :p3d
+  :setup sketch-04/setup
+  :draw sketch-04/draw
+  :mouse-released sketch-04/mouse-released)
