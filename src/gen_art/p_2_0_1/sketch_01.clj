@@ -1,8 +1,6 @@
 (ns gen-art.p-2-0-1.sketch-01
-  (:require [quil.core :as q]))
-
-(defn offset [{:keys [width height]}]
-  (map #(/ % 2) [width height]))
+  (:require [gen-art.p-2-0-1.core :refer [offset]]
+            [quil.core :as q]))
 
 (defn setup []
   (q/no-cursor)
@@ -14,7 +12,6 @@
    :weight 10
    :radius 100})
 
-
 (defn draw [{:keys [weight count radius] :as state}]
   (q/background 255)
   (q/stroke-weight weight)
@@ -25,14 +22,13 @@
   (q/end-shape))
 
 (defn mouse-moved [{:keys [width height] :as state} {:keys [x y]}]
-  (let [[offset-x offset-y] (offset state)]
-    (assoc state
-           :count  (-> y
-                       (q/map-range 0 height 2 80)
-                       q/round)
-           :radius (-> x
-                       (q/map-range 0
-                                    width
-                                    0.5
-                                    (- (min offset-x offset-y) 0.5)))
-           :weight (/ y 20))))
+  (assoc state
+         :count  (-> y
+                     (q/map-range 0 height 2 80)
+                     q/round)
+         :radius (-> x
+                     (q/map-range 0
+                                  width
+                                  0.5
+                                  (- (apply min (offset state)) 0.5)))
+         :weight (/ y 20)))
